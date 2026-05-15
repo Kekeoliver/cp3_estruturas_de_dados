@@ -28,6 +28,8 @@ void consultarSaldo(float saldo) {
     printf("\nPressione ENTER para voltar ao menu...");
     fflush(stdin); // Limpa o buffer do teclado
     getchar();     // Aguarda o usuário pressionar uma tecla
+
+    return saldo;
 }
 
 
@@ -58,6 +60,22 @@ void consultarSaldo(float saldo) {
         break;
         defult:
         printf("Opcao invalida!\n");
+
+     float sacar(float saldo) {
+    float valor;
+    printf("Digite o valor do saque: R$ ");
+    scanf("%f", &valor);
+
+    if (valor <= 0) {
+        printf("Valor invalido para saque.\n");
+    } else if (valor > saldo) {
+        printf("Erro: Saldo insuficiente para realizar o saque.\n");
+    } else {
+        saldo -= valor;
+        printf("Saque de R$ %.2f realizado com sucesso!\n", valor);
+    }
+    return saldo;
+}   
 
 
     }
