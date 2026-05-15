@@ -13,6 +13,24 @@ int main(){
     } while (opcao != 0);
     printf("Obrigada por usar o nosso ATM!");
 }
+
+
+void consultarSaldo(float saldo) {
+    // No Windows use "cls", no Linux/Mac use "clear"
+    system("cls || clear"); 
+
+    printf("\n============================\n");
+    printf("      EXTRATO BANCARIO      \n");
+    printf("============================\n");
+    printf(" Saldo Disponivel: R$ %.2f\n", saldo);
+    printf("============================\n");
+    
+    printf("\nPressione ENTER para voltar ao menu...");
+    fflush(stdin); // Limpa o buffer do teclado
+    getchar();     // Aguarda o usuário pressionar uma tecla
+}
+
+
  void exibirMenu(){
     printf("\n");
     printf("CAIXA ELETRONICO");
@@ -40,6 +58,8 @@ int main(){
         break;
         defult:
         printf("Opcao invalida!\n");
+
+
     }
     return 0;
 
