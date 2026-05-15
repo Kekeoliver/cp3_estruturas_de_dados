@@ -1,14 +1,19 @@
 #include <stdio.h>
  int opcao;
+ int exibirMenu;
+ int consultarSaldo;
+ int saldo;
+ int realizarSaque;
+
 int main(){
     do{
-        system("clm");
+        system("cls");
         exibirMenu();
         scanf("%d", &opcao);
     } while (opcao != 0);
     printf("Obrigada por usar o nosso ATM!");
 }
-void exibirMenu(){
+ void exibirMenu(){
     printf("\n");
     printf("CAIXA ELETRONICO");
     printf("\n");
@@ -19,11 +24,24 @@ void exibirMenu(){
     printf("================================\n");
     printf(" Escolha uma opcao: ");
 
-    scanf("%d", &opcao);
     while (getchar() != '\n');
     if (opcao < 0 || opcao > 3){
         printf("Opcao invalida");
     }
+    switch(opcao) {
+        case 1:
+        consultarSaldo(saldo);
+        break;
+        case 2:
+        saldo = realizarSaque(saldo);
+        break;
+        case 0:
+        printf("Saldo...\n");
+        break;
+        defult:
+        printf("Opcao invalida!\n");
+    }
+    return 0;
 
 
 }
